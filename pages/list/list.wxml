@@ -4,30 +4,26 @@
 <text class='list_Title'>作者推荐</text>
 </block>
 
-
-
 <view class="list_item" bindtap="showok">
 <text class='list_item_title'>这里写一个标题</text>
 <i class="icon iconfont icon-more text-gray"></i>
 </view>
 
-<view class="list_item" bindtap="modalcnt">
+<view class="list_item" bindtap="modalcnt" data-id="MINA">
 <text class='list_item_title'>这里写一个标题</text>
 <i class="icon iconfont icon-more text-gray"></i>
 </view>
-<view class="list_item">
-<text class='list_item_title'>这里写一个标题</text>
-<i class="icon iconfont icon-more text-gray"></i>
-</view>
-<view class="list_item">
-<text class='list_item_title'>这里写一个标题</text>
-<i class="icon iconfont icon-more text-gray"></i>
-</view>
-<view class="list_item">
+<view class="list_item" bindtap="actionsheet">
 <text class='list_item_title'>这里写一个标题</text>
 <i class="icon iconfont icon-more text-gray"></i>
 </view>
 
+<view wx:for="{{userlist}}" wx:key="key">
+<view class="list_item"  bindtap="navcontent"  data-id="{{item.Id}}">
+<text class='list_item_title'>{{item.TeacherName}}</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+</view>
 
 
 </view>

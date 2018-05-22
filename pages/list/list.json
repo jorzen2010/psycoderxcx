@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "列表样式"
+  "navigationBarTitleText": "列表样式",
+  "enablePullDownRefresh": true
+      
 }

@@ -1,0 +1,8 @@
+<view>
+内容页面
+<text>
+{{id}}  \n
+{{userlist[0].TeacherName}} \n
+{{teacher}}
+</text>
+</view>
