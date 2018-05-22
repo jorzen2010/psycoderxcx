@@ -1,0 +1,33 @@
+<!--index.wxml-->
+<view class='list_container'>
+<block>
+<text class='list_Title'>作者推荐</text>
+</block>
+
+
+
+<view class="list_item" bindtap="showok">
+<text class='list_item_title'>这里写一个标题</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+
+<view class="list_item" bindtap="modalcnt">
+<text class='list_item_title'>这里写一个标题</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+<view class="list_item">
+<text class='list_item_title'>这里写一个标题</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+<view class="list_item">
+<text class='list_item_title'>这里写一个标题</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+<view class="list_item">
+<text class='list_item_title'>这里写一个标题</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+
+
+
+</view>

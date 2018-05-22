@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/list/list"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -21,7 +22,7 @@
       "text":"首页"
     },
     {
-      "pagePath": "pages/logs/logs",
+      "pagePath": "pages/list/list",
       "iconPath": "src/images/Video.png",
       "selectedIconPath": "src/images/SVideo.png",
       "text": "课程"
