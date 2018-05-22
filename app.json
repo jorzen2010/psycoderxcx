@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color":"#aaa",
+    "selectedColor":"#24aa39",
+    "borderStyle":"black",
+    "backgroundColor": "#ffffff",
+    "list":[{
+      "pagePath":"pages/index/index",
+      "iconPath":"src/images/List.png",
+      "selectedIconPath":"src/images/SList.png",
+      "text":"首页"
+    },
+    {
+      "pagePath": "pages/logs/logs",
+      "iconPath": "src/images/Video.png",
+      "selectedIconPath": "src/images/SVideo.png",
+      "text": "课程"
+    },
+    {
+      "pagePath": "pages/index/index",
+      "iconPath": "src/images/Message.png",
+      "selectedIconPath": "src/images/SMessage.png",
+      "text": "咨询"
+    },
+    {
+      "pagePath": "pages/logs/logs",
+      "iconPath": "src/images/Lianxiren.png",
+      "selectedIconPath": "src/images/SLianxiren.png",
+      "text": "我"
+    }]
+
+  }
+}
