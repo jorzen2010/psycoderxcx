@@ -1,0 +1,16 @@
+<view>
+
+<view class='avatarcontainer'>
+<image src='{{imgpre}}{{zixunshi.PsyAvatar}}' class='avatar'></image>
+<text class='title'>{{zixunshi.PsyNickName}}</text>
+<text class='Info'>{{zixunshi.PsyInfo}}</text>
+
+<view class="userinfo">
+<image src='{{imgpre}}{{zixunshi.PsyAvatar}}' class='useravatar'></image>
+<button type="primary"> 申请成为会员 </button>
+</view>
+</view>
+
+
+
+</view>

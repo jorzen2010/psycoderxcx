@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/info/info",
     "pages/index/index",
     "pages/logs/logs",
     "pages/list/list",
@@ -17,9 +18,9 @@
     "borderStyle":"black",
     "backgroundColor": "#ffffff",
     "list":[{
-      "pagePath":"pages/index/index",
-      "iconPath":"src/images/List.png",
-      "selectedIconPath":"src/images/SList.png",
+      "pagePath":"pages/info/info",
+      "iconPath":"src/images/Index.png",
+      "selectedIconPath":"src/images/SIndex.png",
       "text":"首页"
     },
     {

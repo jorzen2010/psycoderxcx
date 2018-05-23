@@ -1,0 +1,12 @@
+.content_container{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.title{
+  font-size: 17pt;
+  font-weight: 500;
+}
+.content{
+  font-size: 12pt;
+}

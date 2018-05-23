@@ -34,6 +34,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    zixunshi_id:'1',
+   // apiUrl: "http://localhost:3517/"
+    apiUrl:"https://mp.psycoder.zzd123.com/"
   }
 })

@@ -1,8 +1,13 @@
-<view>
-内容页面
+<view class='content_container'>
+<text class='title'>{{sucai.Title}}</text>
+<text>{{sucai.Author}}</text>
+<text class='content'>
+{{sucai.Content}}
+</text>
 <text>
-{{id}}  \n
-{{userlist[0].TeacherName}} \n
-{{teacher}}
+
+
+{{sucai.CreateTime}}
+
 </text>
 </view>

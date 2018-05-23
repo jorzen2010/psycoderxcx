@@ -1,7 +1,9 @@
+//获取应用实例
+const app = getApp();
 var page = 1;
 Page({
   data:{
-    userlist:[],
+    sclist:[]
   },
   showok: function () {
     wx.showToast({
@@ -37,45 +39,49 @@ Page({
   onLoad: function () {
     var that = this//不要漏了这句，很重要
     wx.request({
-      url: 'http://hanbashuoshuo.zzd123.com/test/test',
+      url: app.globalData.apiUrl+"api/test",
       headers: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
         //将获取到的json数据，存在名字叫zhihu的这个数组中
         that.setData({
-          userlist: res.data.testname,
+          sclist: res.data.xcxsucai,
+          
           //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
 
-        })
+        });
+        console.log('成功获取数据');
       }
     })
   },
   navcontent: function (event){
+    //这种方式不能链接tab里的内容
+    console.log('从链接处获得的id值'+event.currentTarget.dataset.id);
     wx.navigateTo({
-      url: "../../pages/content/content?id="+event.target.dataset.id
+      url: "../../pages/content/content?id=" + event.currentTarget.dataset.id
     })
   },
   onPullDownRefresh: function () {
     // 显示顶部刷新图标  
     wx.showNavigationBarLoading();
     var that = this;
-    var allMsg = that.data.userlist; 
+    var allMsg = that.data.sclist; 
     page++;
     wx.request({
-      url: 'http://hanbashuoshuo.zzd123.com/test/test?page='+page,
-      method: "GET",
+      url: app.globalData.apiUrl +'api/test?page='+page,
+      method: 'GET',
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         // 不能直接 allMsg.push(res); 相当于list.push(list);打乱了结构  
-        for (var i = 0; i < res.data.testname.length; i++) {
-          allMsg.push(res.data.testname[i]);
-          console.log(res.data.testname[i].Id);
+        for (var i = 0; i < res.data.xcxsucai.length; i++) {
+          allMsg.push(res.data.xcxsucai[i]);
+          console.log(res.data.xcxsucai[i].Id);
         }
         that.setData({
-          userlist: allMsg
+          sclist: allMsg
         });
         
        // that.setData({
@@ -100,22 +106,22 @@ Page({
       title: '玩命加载中',
     }) 
     var that = this;
-    var allMsg = that.data.userlist;
+    var allMsg = that.data.sclist;
     page++;
     wx.request({
-      url: 'http://hanbashuoshuo.zzd123.com/test/test?page=' + page,
+      url: app.globalData.apiUrl + 'api/test?page=' + page,
       method: "GET",
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
         // 不能直接 allMsg.push(res); 相当于list.push(list);打乱了结构  
-        for (var i = 0; i < res.data.testname.length; i++) {
-          allMsg.push(res.data.testname[i]);
-          console.log(res.data.testname[i].Id);
+        for (var i = 0; i < res.data.xcxsucai.length; i++) {
+          allMsg.push(res.data.xcxsucai[i]);
+          console.log(res.data.xcxsucai[i].Id);
         }
         that.setData({
-          userlist: allMsg
+          sclist: allMsg
         });
 
         // that.setData({
