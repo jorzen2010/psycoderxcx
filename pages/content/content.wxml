@@ -1,10 +1,10 @@
 <view class='content_container'>
 <text class='title'>{{sucai.Title}}</text>
-<text>{{sucai.Author}}</text>
+<text class='author'>{{sucai.Author}}</text>
 <text class='content'>
 {{sucai.Content}}
 </text>
-<text>
+<text class='time'>
 
 
 {{sucai.CreateTime}}

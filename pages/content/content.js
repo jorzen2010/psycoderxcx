@@ -1,7 +1,7 @@
+var util = require("../../utils/common.js");
 const app = getApp();
 Page({
-  data:{
-    
+  data:{ 
     id:0,
     sucai:{}
   },
@@ -19,10 +19,10 @@ Page({
       },
       success: function (res) {
         //将获取到的json数据，存在名字叫zhihu的这个数组中
+        res.data.CreateTime = util.formatDateStamp(res.data.CreateTime,"short");
         that.setData({
-          sucai: res.data
+          sucai: res.data,
           //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
-
         })
       }
     });

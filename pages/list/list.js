@@ -1,4 +1,5 @@
 //获取应用实例
+var util = require("../../utils/common.js");
 const app = getApp();
 var page = 1;
 Page({
@@ -44,6 +45,12 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
+
+        // var sucailist = res.data.xcxsucai;
+        // for (var i = 0; i < sucailist.length; i++) {
+          
+        //   sucailist[i].CreateTime = util.formatTime(sucailist[i].CreateTime);
+        // }
         //将获取到的json数据，存在名字叫zhihu的这个数组中
         that.setData({
           sclist: res.data.xcxsucai,

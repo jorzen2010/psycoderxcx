@@ -6,7 +6,15 @@
 .title{
   font-size: 17pt;
   font-weight: 500;
+  color: #353535;
+}
+.author{
+  font-size: 14pt;
+  color: #888888;
 }
 .content{
   font-size: 12pt;
+}
+.time{
+  color: #888888;
 }
