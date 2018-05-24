@@ -2,12 +2,20 @@
 <text class='title'>{{sucai.Title}}</text>
 <text class='author'>{{sucai.Author}}</text>
 <text class='content'>
-{{sucai.Content}}
+<block wx:if="{{sucaitype}}">
+这是图文{{sucai.Content}}
+</block>
+<block wx:if="{{!sucaitype}}">
+这是音视频{{sucai.Content}}
+</block>
+
+
 </text>
 <text class='time'>
 
 
-{{sucai.CreateTime}}
+
+{{sucai.CreateTime}}{{sucai.type}}
 
 </text>
 </view>

@@ -6,8 +6,28 @@
 <text class='Info'>{{zixunshi.PsyInfo}}</text>
 
 <view class="userinfo">
-<image src='{{imgpre}}{{zixunshi.PsyAvatar}}' class='useravatar'></image>
-<button type="primary"> 申请成为会员 </button>
+
+<!--wxml-->
+<!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
+
+<!-- 需要使用 button 来授权登录 -->
+<view wx:if="{{hasuserInfo}}">
+<view class="useravatar">
+<open-data type="userAvatarUrl"></open-data>
+</view>
+<open-data type="userNickName"></open-data>
+<button type="primary" size='mini'> 申请成为会员 </button>
+
+</view>
+<view wx:else>
+<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+</view>
+
+
+
+
+
+
 </view>
 </view>
 

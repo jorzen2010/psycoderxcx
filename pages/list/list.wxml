@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class='list_container'>
 <block>
-<text class='list_Title'>作者推荐</text>
+<text class='list_Title'>作者推荐{{pagecount}}</text>
 </block>
 
 <!-- <view class="list_item" bindtap="showok">

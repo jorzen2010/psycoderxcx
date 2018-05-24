@@ -4,7 +4,8 @@ const app = getApp();
 var page = 1;
 Page({
   data:{
-    sclist:[]
+    sclist:[],
+    pagecount:''
   },
   showok: function () {
     wx.showToast({
@@ -54,6 +55,7 @@ Page({
         //将获取到的json数据，存在名字叫zhihu的这个数组中
         that.setData({
           sclist: res.data.xcxsucai,
+          pagecount: res.data.pagecount
           
           //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
 
@@ -74,6 +76,8 @@ Page({
     wx.showNavigationBarLoading();
     var that = this;
     var allMsg = that.data.sclist; 
+    if (that.data.pagecount!=page)
+    {
     page++;
     wx.request({
       url: app.globalData.apiUrl +'api/test?page='+page,
@@ -105,6 +109,19 @@ Page({
         wx.stopPullDownRefresh();
       }
     })
+    }
+    else
+    {
+      wx.showToast({
+        title: '没有更多了',
+        icon: 'success',
+        duration: 1000
+      })
+      // 隐藏导航栏加载框  
+      wx.hideNavigationBarLoading();
+      // 停止下拉动作  
+      wx.stopPullDownRefresh();
+    }
   },
   onReachBottom: function () {
     // 显示顶部刷新图标  

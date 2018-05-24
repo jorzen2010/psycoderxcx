@@ -1,0 +1,15 @@
+<view>
+<text>
+{{sucai.Title}}
+{{videoUrlfo.PlayInfoList.PlayInfo[1].PlayURL}}
+
+</text>
+
+
+
+
+
+<view class="section tc">
+  <video id="myVideo" src="{{videoUrlfo.PlayInfoList.PlayInfo[1].PlayURL}}" enable-danmu danmu-btn controls></video>
+</view>
+</view>

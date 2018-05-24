@@ -1,0 +1,55 @@
+<view class='coursecontainer'>
+
+
+<view class='item'>
+
+<image  src='../../src/images/demo.jpg' mode='top'   class='item-img'></image>
+
+<view class='item-info'>
+<text class='item-info-title'>亲子教育的本质是影响而不是教</text>
+<text class='item-info-small'>类型：音频</text>
+</view>
+</view>
+
+<view class='item'>
+<view  class='item-img-icon'>
+<image  src='../../src/images/demo.jpg' mode='top'   class='item-img'></image>
+<text class='item-img-tag2'>免费</text>
+</view>
+<view class='item-info'>
+<text class='item-info-title'>亲子教育的本质是影响而不是教</text>
+<text class='item-info-small'>类型：音频</text>
+</view>
+</view>
+
+
+<view class='item'>
+<view  class='item-img-icon'>
+<image  src='../../src/images/demo.jpg' mode='top'   class='item-img'></image>
+<text class='item-img-tag'>免费</text>
+
+</view>
+<view class='item-info'>
+<text class='item-info-title'>亲子教育的本质是影响而不是教亲子教育的本质是影响而不是教</text>
+<text class='item-info-small'>音频  作者：赵征</text>
+<text class='item-info-small'>这是一段说明性的文字这是一段说明性的文字这是一段说明性的文字这是一段说明性的文字这是一段说明性的文字这是一段说明性的文字 </text>
+
+</view>
+</view>
+
+
+<view class='item'>
+
+<image  src='../../src/images/demo.jpg' mode='top'   class='item-img'></image>
+
+<view class='item-info'>
+<text class='item-info-title'>亲子教育的本质是影响而不是教</text>
+<text class='item-info-small'>类型：音频</text>
+<text class='item-info-small'>作者：赵征</text>
+</view>
+</view>
+
+
+
+
+</view>
