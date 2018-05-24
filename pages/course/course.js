@@ -1,53 +1,60 @@
 const app = getApp();
 Page({
   data:{
+    selectsxlist:[],
     sclist:[],
-    pagecount:0
-
+    pagecount:0,
+    sucai:{}
   },
 
   onLoad: function () {
-    var that = this//不要漏了这句，很重要
+    var that = this;//不要漏了这句，很重要
+
+    var sucailist = that.data.sclist;
+    var selectsxlist = that.data.selectsxlist;
     wx.request({
-      url: app.globalData.apiUrl + "api/GetXCXSucaiList?pid=" + app.globalData.zixunshi_id,
+      url: app.globalData.apiUrl + "api/GetSelectedXCXSucaiList?pid=" + app.globalData.zixunshi_id,
       headers: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
+        
 
-        var selectsucailist = res.data.selectsucai;
-        var sucailist = [];
-        for (var i = 0; i < selectsucailist.length; i++) {
-          var selectsucai = this.getSucaiById(selectsucailist[i].Sucai);
-          sucailist.push(selectsucai);
-         // sucailist[i].CreateTime = util.formatTime(sucailist[i].CreateTime);
-        }
-        //将获取到的json数据，存在名字叫zhihu的这个数组中
         that.setData({
-          sclist: sucailist,
-          pagecount: res.data.pagecount
-
-          //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
+          selectsxlist: res.data.selectsucai,
+        
 
         });
-        console.log('成功获取数据');
+        for (var i = 0; i < that.data.selectsxlist.length; i++)
+        {
+          var obj = that.data.sucai;
+          obj = that.getSucaiById(that.data.selectsxlist[i].Sucai);
+          console.log('循环Id' + obj);
+          sucailist.push(obj);
+        }
       }
-    })
+    });
+    that.setData({
+      sclist: sucailist,
+    });
   },
 
-  getSucaiById:function(cid){
-    var sucai=null;
+  getSucaiById: function(cid){
+  var _this=this;
     wx.request({
-      url: app.globalData.apiUrl + "api/GetXCXSucaiList?cid=" + cid,
+      url: app.globalData.apiUrl + "api/GetXCXSucaiJson?cid=" + cid,
       headers: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        sucai = res.data;
-        return sucai;
-        console.log('成功获取数据');
+      console.log(res.data.Title);
+    //  _this.data.sucai.Title = res.data.Title;
+      _this.setData({
+        sucai:res.data,
+      });
       }
-    })
-
+    });
+    console.log('怎么从success里得到一个值');
+    return _this.data.sucai;
   }
 })
