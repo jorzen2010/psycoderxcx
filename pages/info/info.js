@@ -17,7 +17,7 @@ Page({
           wx.getUserInfo({
             success: function (res) {
               //这里应该直接插入到数据库里把这个人
-              console.log('成功授权');
+            //  console.log('成功授权');
             }
           })
         }

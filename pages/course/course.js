@@ -1,3 +1,4 @@
+const network = require('../../utils/networkasy.js')
 const app = getApp();
 Page({
   data:{
@@ -6,55 +7,85 @@ Page({
     pagecount:0,
     sucai:{}
   },
-
   onLoad: function () {
-    var that = this;//不要漏了这句，很重要
 
-    var sucailist = that.data.sclist;
-    var selectsxlist = that.data.selectsxlist;
+    var that=this;
+    
+    
+
+    that.getJSON().then(function (json) {
+      console.log('Contents: ' + json);
+    }, function (error) {
+      console.error('出错了', error);
+    });
+  },
+
+   getJSON : function () {
+     var _this=this;
+    const promise = new Promise(function (resolve, reject) {
+      const handler = function () {
+        if (this.readyState !== 4) {
+          return;
+        }
+        if (this.status === 200) {
+          resolve(this.response);
+        } else {
+          reject(new Error(this.statusText));
+        }
+      };
+      wx.request({
+        url: app.globalData.apiUrl + "api/GetSelectedXCXSucaiList?pid=" + app.globalData.zixunshi_id,
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          _this.setData({
+            selectsxlist: res.data.selectsucai,
+          });
+          console.log('赋值结束' + _this.data.selectsxlist[0].Sucai);
+        }
+      });
+
+    });
+
+    return promise;
+  },
+  getSelectSucaiByPId: function () {
+
+    var _this = this;//不要漏了这句，很重要
+
     wx.request({
       url: app.globalData.apiUrl + "api/GetSelectedXCXSucaiList?pid=" + app.globalData.zixunshi_id,
       headers: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        
-
-        that.setData({
+        _this.setData({
           selectsxlist: res.data.selectsucai,
-        
-
         });
-        for (var i = 0; i < that.data.selectsxlist.length; i++)
-        {
-          var obj = that.data.sucai;
-          obj = that.getSucaiById(that.data.selectsxlist[i].Sucai);
-          console.log('循环Id' + obj);
-          sucailist.push(obj);
-        }
+        console.log('赋值结束' + _this.data.selectsxlist);
       }
     });
-    that.setData({
-      sclist: sucailist,
-    });
+
   },
 
-  getSucaiById: function(cid){
-  var _this=this;
+  getSucaiById: function (cid) {
+    var _this = this;
     wx.request({
-      url: app.globalData.apiUrl + "api/GetXCXSucaiJson?cid=" + cid,
+      url: app.globalData.apiUrl + "api/GetXCXSucai?cid=" + cid,
       headers: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
-      console.log(res.data.Title);
-    //  _this.data.sucai.Title = res.data.Title;
-      _this.setData({
-        sucai:res.data,
-      });
+       // _this.sclist.push(res.data);
+       // console.log(res.data);
+
+      },
+      complete: function (res) {
+        return res.data;
       }
     });
-    console.log('怎么从success里得到一个值');
-    return _this.data.sucai;
+
   }
+
 })
