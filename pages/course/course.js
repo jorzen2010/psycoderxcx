@@ -1,91 +1,106 @@
 const network = require('../../utils/networkasy.js')
 const app = getApp();
+
+const getSucaiById = (cid) => new Promise((resolve) => {
+  wx.request({
+    url: app.globalData.apiUrl + "api/GetXCXSucai?cid=" + cid,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    success: function (res) {
+      resolve(res.data);
+      //  console.log(res.data);
+    },
+  });
+});
+
+
 Page({
-  data:{
-    selectsxlist:[],
-    sclist:[],
-    pagecount:0,
-    sucai:{}
+  data: {
+    sclist: [],
+    sucai: {}
   },
   onLoad: function () {
 
-    var that=this;
-    
-    
+    var that = this;
 
-    that.getJSON().then(function (json) {
-      console.log('Contents: ' + json);
-    }, function (error) {
-      console.error('出错了', error);
-    });
-  },
 
-   getJSON : function () {
-     var _this=this;
-    const promise = new Promise(function (resolve, reject) {
-      const handler = function () {
-        if (this.readyState !== 4) {
-          return;
-        }
-        if (this.status === 200) {
-          resolve(this.response);
-        } else {
-          reject(new Error(this.statusText));
-        }
-      };
-      wx.request({
-        url: app.globalData.apiUrl + "api/GetSelectedXCXSucaiList?pid=" + app.globalData.zixunshi_id,
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          _this.setData({
-            selectsxlist: res.data.selectsucai,
-          });
-          console.log('赋值结束' + _this.data.selectsxlist[0].Sucai);
-        }
-      });
-
-    });
-
-    return promise;
-  },
-  getSelectSucaiByPId: function () {
-
-    var _this = this;//不要漏了这句，很重要
-
-    wx.request({
-      url: app.globalData.apiUrl + "api/GetSelectedXCXSucaiList?pid=" + app.globalData.zixunshi_id,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        _this.setData({
-          selectsxlist: res.data.selectsucai,
+        wx.request({
+          url: app.globalData.apiUrl + "api/GetSelectedXCXSucaiList?pid=" + app.globalData.zixunshi_id,
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          success: function (res) {
+           // resolve(res.data.selectsucai);
+            Promise.all(res.data.selectsucai.map(item => getSucaiById(item.Sucai)))
+            .then(function(result){
+              that.setData({
+                sclist: result,
+              });
+              console.log(result);
+            });
+            //  console.log(res.data.selectsucai);
+          }
         });
-        console.log('赋值结束' + _this.data.selectsxlist);
-      }
-    });
 
+
+
+    // that.getSelectSucaiByPId()
+    // .then(function (data) {
+    //   Promise.all([data.map(item => getSucaiById(item.Sucai))]);
+    // })
+    // .then(function(result){
+    //  // console.log(result);
+    //   });
+    // Promise.all([getSucaiById(9), getSucaiById(6)])
+    // .then(function(result){
+    //   console.log(result);
+    // });
+    
   },
 
-  getSucaiById: function (cid) {
-    var _this = this;
-    wx.request({
-      url: app.globalData.apiUrl + "api/GetXCXSucai?cid=" + cid,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-       // _this.sclist.push(res.data);
-       // console.log(res.data);
 
-      },
-      complete: function (res) {
-        return res.data;
-      }
-    });
 
-  }
+  // getSelectSucaiByPId: function () {
+  //   var _this = this;
+  //   return new Promise(function (resolve, reject) {
+
+  //     wx.request({
+  //       url: app.globalData.apiUrl + "api/GetSelectedXCXSucaiList?pid=" + app.globalData.zixunshi_id,
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       success: function (res) {
+  //        resolve(res.data.selectsucai);
+  //      //  console.log(res.data.selectsucai);
+  //       }
+  //     });
+  //   });
+  // },
+
+
+  // getSucaiById: function (cid) {
+
+  //   return new Promise(function (resolve, reject) {
+  //   wx.request({
+  //     url: app.globalData.apiUrl + "api/GetXCXSucai?cid=" + cid,
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     success: function (res) {
+  //     resolve(res.data);
+  //   //  console.log(res.data);
+  //     },
+  //   });
+  //   });
+  // },
+  
+
+    
+    
+
+
+
+
 
 })
