@@ -28,8 +28,8 @@
     },
     {
       "pagePath": "pages/list/list",
-      "iconPath": "src/images/Video.png",
-      "selectedIconPath": "src/images/SVideo.png",
+      "iconPath": "src/images/List.png",
+      "selectedIconPath": "src/images/SList.png",
       "text": "文章"
     },
     {
