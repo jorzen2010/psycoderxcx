@@ -1,12 +1,18 @@
+<import src="../../utils/wxParse/wxParse.wxml"/>
 <view class='content_container'>
 <text class='title'>{{sucai.Title}}</text>
 <text class='author'>{{sucai.Author}}</text>
 <text class='content'>
 <block wx:if="{{sucaitype}}">
-这是图文{{sucai.Content}}
+这是图文
+<view>
+<template is="wxParse" data="{{wxParseData:article_content.nodes}}"/>
+</view>
 </block>
 <block wx:if="{{!sucaitype}}">
-这是音视频{{sucai.Content}}
+这是音视频
+
+
 </block>
 
 

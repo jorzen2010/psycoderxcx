@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/psyuser/psyuser",
     "pages/info/info",
     "pages/index/index",
     "pages/logs/logs",
@@ -20,13 +21,19 @@
     "borderStyle":"black",
     "backgroundColor": "#ffffff",
     "list":[{
-      "pagePath":"pages/info/info",
+      "pagePath":"pages/psyuser/psyuser",
       "iconPath":"src/images/Index.png",
       "selectedIconPath":"src/images/SIndex.png",
       "text":"首页"
     },
     {
-      "pagePath": "pages/logs/logs",
+      "pagePath": "pages/list/list",
+      "iconPath": "src/images/Video.png",
+      "selectedIconPath": "src/images/SVideo.png",
+      "text": "文章"
+    },
+    {
+      "pagePath": "pages/course/course",
       "iconPath": "src/images/Video.png",
       "selectedIconPath": "src/images/SVideo.png",
       "text": "课程"
@@ -38,7 +45,7 @@
       "text": "咨询"
     },
     {
-      "pagePath": "pages/list/list",
+      "pagePath": "pages/logs/logs",
       "iconPath": "src/images/Lianxiren.png",
       "selectedIconPath": "src/images/SLianxiren.png",
       "text": "我的"

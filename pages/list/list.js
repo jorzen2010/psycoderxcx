@@ -41,7 +41,7 @@ Page({
   onLoad: function () {
     var that = this//不要漏了这句，很重要
     wx.request({
-      url: app.globalData.apiUrl+"api/test",
+      url: app.globalData.apiUrl+"/api/test",
       headers: {
         'Content-Type': 'application/json'
       },
@@ -80,7 +80,7 @@ Page({
     {
     page++;
     wx.request({
-      url: app.globalData.apiUrl +'api/test?page='+page,
+      url: app.globalData.apiUrl +'/api/test?page='+page,
       method: 'GET',
       header: {
         'content-type': 'application/json'
@@ -133,7 +133,7 @@ Page({
     var allMsg = that.data.sclist;
     page++;
     wx.request({
-      url: app.globalData.apiUrl + 'api/test?page=' + page,
+      url: app.globalData.apiUrl + '/api/test?page=' + page,
       method: "GET",
       header: {
         'content-type': 'application/json'

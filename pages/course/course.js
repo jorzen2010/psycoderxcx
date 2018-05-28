@@ -1,22 +1,9 @@
-const network = require('../../utils/networkasy.js')
+const psycoder = require('../../utils/psycoder.js')
 const app = getApp();
-
-const getSucaiById = (cid) => new Promise((resolve) => {
-  wx.request({
-    url: app.globalData.apiUrl + "api/GetXCXSucai?cid=" + cid,
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    success: function (res) {
-      resolve(res.data);
-      //  console.log(res.data);
-    },
-  });
-});
-
 
 Page({
   data: {
+    imgpre: app.globalData.apiUrl,
     sclist: [],
     sucai: {}
   },
@@ -26,13 +13,13 @@ Page({
 
 
         wx.request({
-          url: app.globalData.apiUrl + "api/GetSelectedXCXSucaiList?pid=" + app.globalData.zixunshi_id,
+          url: app.globalData.apiUrl + "/api/GetSelectedXCXSucaiList?pid=" + app.globalData.zixunshi_id,
           headers: {
             'Content-Type': 'application/json'
           },
           success: function (res) {
            // resolve(res.data.selectsucai);
-            Promise.all(res.data.selectsucai.map(item => getSucaiById(item.Sucai)))
+            Promise.all(res.data.selectsucai.map(item => psycoder.getSucaiById(item.Sucai)))
             .then(function(result){
               that.setData({
                 sclist: result,

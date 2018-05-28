@@ -1,0 +1,16 @@
+.avatarcontainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.title{
+  font-size:30pt;
+  font-weight: 500;
+}
+.avatar{
+  margin-top: 20px;
+  border: 5px solid #eeeeee;
+  border-radius:10%; 
+  width: 150px;
+  height: 150px;
+}

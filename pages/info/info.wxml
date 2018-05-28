@@ -7,21 +7,19 @@
 
 <view class="userinfo">
 
-<!--wxml-->
-<!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 -->
 
-<!-- 需要使用 button 来授权登录 -->
-<view wx:if="{{hasuserInfo}}">
-<view class="useravatar">
-<open-data type="userAvatarUrl"></open-data>
-</view>
-<open-data type="userNickName"></open-data>
+<block wx:if="{{hasuserInfo}}">
+<image src='{{userinfo.avatarUrl}}'  class="useravatar"></image>
+<text>
+{{userinfo.nickName}}
+</text>
 <button type="primary" size='mini'> 申请成为会员 </button>
 
-</view>
-<view wx:else>
-<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
-</view>
+
+</block>
+<block wx:else>
+<button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
+</block>
 
 
 

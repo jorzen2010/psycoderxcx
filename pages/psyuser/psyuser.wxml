@@ -1,0 +1,17 @@
+<view class='avatarcontainer'>
+<image src='{{imgpre}}{{zixunshi.PsyAvatar}}' class='avatar'></image>
+<text class='title'>{{zixunshi.PsyNickName}}</text>
+<text class='Info'>{{zixunshi.PsyInfo}}</text>
+</view>
+
+<view class='list_container'>
+<block>
+<text class='list_Title'>作者精选</text>
+</block>
+<view wx:for="{{topsucailist}}" wx:key="key">
+<view class="list_item"  bindtap="navcontent"  data-id="{{item.Id}}">
+<text class='list_item_title'>{{item.Title}}</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+</view>
+</view>

@@ -3,26 +3,10 @@
 <block>
 <text class='list_Title'>作者推荐{{pagecount}}</text>
 </block>
-
-<!-- <view class="list_item" bindtap="showok">
-<text class='list_item_title'>这里写一个标题</text>
-<i class="icon iconfont icon-more text-gray"></i>
-</view>
-
-<view class="list_item" bindtap="modalcnt" data-id="MINA">
-<text class='list_item_title'>这里写一个标题</text>
-<i class="icon iconfont icon-more text-gray"></i>
-</view>
-<view class="list_item" bindtap="actionsheet">
-<text class='list_item_title'>这里写一个标题</text>
-<i class="icon iconfont icon-more text-gray"></i>
-</view> -->
 <view wx:for="{{sclist}}" wx:key="key">
 <view class="list_item"  bindtap="navcontent"  data-id="{{item.Id}}">
 <text class='list_item_title'>{{item.Title}}</text>
 <i class="icon iconfont icon-more text-gray"></i>
 </view>
 </view>
-
-
 </view>

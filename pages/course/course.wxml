@@ -1,12 +1,23 @@
 <view class='coursecontainer'>
 
 
-<view wx:for="{{sclist}}" wx:key="key">
-<view class="list_item"  bindtap="navcontent"  data-id="{{item.Id}}">
+<block wx:for="{{sclist}}" wx:key="key">
+<!-- <view class="list_item"  bindtap="navcontent"  data-id="{{item.Id}}">
 <text class='list_item_title'>{{item.Title}}</text>
 <i class="icon iconfont icon-more text-gray"></i>
+</view> -->
+
+<view class='item'>
+
+<image  src='{{imgpre}}{{item.Cover}}' mode='top'   class='item-img'></image>
+
+<view class='item-info'>
+<text class='item-info-title'>{{item.Title}}</text>
+<text class='item-info-small'>类型：音频</text>
 </view>
 </view>
+
+</block>
 
 <!-- 
 <view class='item'>
