@@ -1,5 +1,7 @@
+const psycoder = require('../../utils/psycoder.js');
 const innerAudioContext = wx.createInnerAudioContext();
 const app = getApp();
+
 Page({
   data: {
     id: 0,
@@ -9,50 +11,57 @@ Page({
     audiosrc:'',
     duration:0,
     percent:0,
+    currentTime:0
   },
   onLoad:function(option) {
-    var that = this//不要漏了这句，很重要
+    var that = this;//不要漏了这句，很重要
+    var audioduration=0;
+    var audiaocurrenttime=0;
     that.setData({
       id: option.id
-    })    
-    wx.request({
-      url: app.globalData.apiUrl + '/api/GetXCXVideoSucai?cid=' + that.data.id,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        that.setData({
+    });
+    psycoder.getVideoSucaiById(that.data.id)
+    .then(function(res){
+      console.log(res.data.sucai);
+      console.log(res.data.videoUrlfo);
+      var _this=that;
+      console.log(_this.data.id);
+      new Promise((resolve)=>{
+        console.log(_this.data.id);
+        _this.setData({
           sucai: res.data.sucai,
           videoUrlfo: res.data.videoUrlfo,
           audiosrc: res.data.videoUrlfo.PlayInfoList.PlayInfo[1].PlayURL,
           duration: res.data.videoUrlfo.VideoBase.Duration
-        });      
-        innerAudioContext.src = res.data.videoUrlfo.PlayInfoList.PlayInfo[1].PlayURL;
-        // console.log(res.data.sucai);
-        // console.log(res.data.videoUrlfo);
-        // console.log(res.data.videoUrlfo.PlayInfoList.PlayInfo[1].PlayURL);
-        // console.log(res.data.videoUrlfo.VideoBase.Duration);
-        // console.log(that.sucai);
-        // console.log(that.videoUrlfo);
-        // console.log(that.audiosrc);
-        // console.log(that.duration);
-      }
+        }); 
+        resolve(_this.data);
+      }).then(function (res) {
+        console.log('时长' + res.duration);
+        innerAudioContext.src = res.audiosrc;
+        audioduration = res.duration;
+      });
+ 
+        
+
     });
+
+
+  
 
     innerAudioContext.onTimeUpdate(() => {
       console.log('时间发生变化了' + innerAudioContext.currentTime);
-      that.setData({
-        percent: (innerAudioContext.currentTime / that.duration)*100
+      console.log('时长' + parseInt(audioduration));
+      audiaocurrenttime = (innerAudioContext.currentTime / audioduration) * 10000;
+      console.log('播放时间' + parseInt(audiaocurrenttime));
+      this.setData({
+        percent: (innerAudioContext.currentTime / audioduration)*100,
+        currentTime: innerAudioContext.currentTime
       })
-      console.log('时间轴' + that.percent);
+     
     });
     innerAudioContext.onPlay(() => {
       console.log('开始播放' + that.duration);
-    });
-
-
-
- 
+    }); 
   },
   onShow:function(){
     
@@ -84,15 +93,3 @@ Page({
 
 
 
-    // innerAudioContext.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46';
-    // that.audiosrc = innerAudioContext.src;
-
-    // innerAudioContext.onTimeUpdate(() => {
-    //   console.log('时间发生变化了' + innerAudioContext.currentTime);
-    // });
-    // innerAudioContext.onPlay(() => {
-    //   console.log('开始播放' + innerAudioContext.duration);
-    // });
-    // innerAudioContext.onCanplay(() => {
-    //   console.log('可以播放' + innerAudioContext.duration);
-    // });

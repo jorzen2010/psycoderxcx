@@ -7,15 +7,13 @@ Page({
     videoUrlfo:{}
   },
   onLoad: function (option) {
-    this.setData({
+    var that = this;//不要漏了这句，很重要
+    that.setData({
       id: option.id,
-      sucaitype: option.type
     })
-    console.log(option.id);
-    console.log(this.data.id);
-    var that = this//不要漏了这句，很重要
+    
     wx.request({
-      url: app.globalData.apiUrl + '/api/GetXCXVideoSucai?cid=' + this.data.id,
+      url: app.globalData.apiUrl + '/api/GetXCXVideoSucai?cid=' + that.data.id,
       headers: {
         'Content-Type': 'application/json'
       },
@@ -29,6 +27,5 @@ Page({
         })
       }
     });
-    console.log("用id获取对象，并赋值给相应的字段名");
   }
 })

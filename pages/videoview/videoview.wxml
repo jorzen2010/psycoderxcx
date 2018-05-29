@@ -9,7 +9,6 @@
 
 
 
-<view class="section tc">
-  <video id="myVideo" src="{{videoUrlfo.PlayInfoList.PlayInfo[1].PlayURL}}" enable-danmu danmu-btn controls></video>
-</view>
+  <video id="myVideo" src="{{videoUrlfo.PlayInfoList.PlayInfo[1].PlayURL}}" enable-danmu danmu-btn controls class='videosrc'></video>
+
 </view>
