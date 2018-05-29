@@ -1,0 +1,17 @@
+<view>
+时长:{{duration}}
+<progress percent="20" stroke-width="2" activeColor="#ffd200" backgroundColor="#bcbcbc"  /> 
+
+<block wx:if="{{ifcanplay}}">
+<view  bindtap="audioPlay">
+播放   
+</view>
+</block>
+<block wx:if="{{!ifcanplay}}">
+<view  bindtap="audioPause">
+暂停   
+</view>
+</block>
+
+</view>
+

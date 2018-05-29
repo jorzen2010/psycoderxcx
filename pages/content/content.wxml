@@ -1,23 +1,21 @@
 <import src="../../utils/wxParse/wxParse.wxml"/>
 <view class='content_container'>
-<text class='title'>{{sucai.Title}}我想这就是一个人的木我想这就是一个人的木我想这就是一个人的木我想这就是一个人的木</text>
-<text class='time'>{{sucai.CreateTime}}</text>
+<text class='title'>{{sucai.Title}}我想这就是一个人的木我想这就是一个人的</text>
+<text class='time'>{{sucai.Author}}   {{sucai.CreateTime}}</text>
 
 <block wx:if="{{sucaitype}}">
 <view class='content'>
 <template is="wxParse" data="{{wxParseData:article_content.nodes}}"/>
 </view>
-
 </block>
 <block wx:if="{{!sucaitype}}">
 这是音视频
 </block>
-
 <text class='time'>
-
-
-
-{{sucai.CreateTime}}{{sucai.type}}
-
+{{sucai.CreateTime}}
 </text>
+</view>
+<view class='adcontainer'>
+咨询电话：阿道夫
+
 </view>

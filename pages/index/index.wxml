@@ -13,4 +13,5 @@
   <navigator url='../../pages/logs/logs' open-type='switchTab'>使用switchtab切换标签</navigator>
   <navigator url='../../pages/videoview/videoview'>视频练习</navigator>
     <navigator url='../../pages/course/course'>视频列表</navigator>
+    <navigator url='../../pages/audioview/audioview'>音频播放</navigator>
 </view>

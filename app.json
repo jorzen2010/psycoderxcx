@@ -7,7 +7,8 @@
     "pages/list/list",
     "pages/content/content",
     "pages/course/course",
-    "pages/videoview/videoview"
+    "pages/videoview/videoview",
+    "pages/audioview/audioview"
   ],
   "window":{
     "backgroundTextStyle":"dark",

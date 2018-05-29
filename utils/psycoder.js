@@ -14,6 +14,23 @@ const getSucaiById = (cid) => new Promise((resolve) => {
   });
 });
 
+
+const getVideoSucaiById = (cid) => new Promise((resolve) => {
+
+  wx.request({
+    url: app.globalData.apiUrl + '/api/GetXCXVideoSucai?cid=' + that.data.id,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    success: function (res) {
+      resolve(res.data);
+    }
+  });
+
+});
+
+
+
 //暴露接口给外部使用
 module.exports = {
   getSucaiById: getSucaiById

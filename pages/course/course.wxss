@@ -2,10 +2,13 @@
   display: flex;
   flex-direction: column;
   background-color: #eeeeee;
+  min-height: 600px;
 }
 .item{
   margin:15rpx 30rpx; 
   background-color: #ffffff;
+    border-top-left-radius:10rpx; 
+  border-top-right-radius:10rpx; 
 }
 .item-img{
   width: 100%;
@@ -19,7 +22,7 @@
 .item-img-tag{
   padding-top: 10rpx;
   text-align: center;
-  width:100rpx;
+  width:150rpx;
   height:60rpx;
   color: #ffffff;
   position:absolute;
@@ -28,7 +31,21 @@
   border-bottom-left-radius:10rpx;
   right:0px; 
   top:0px; 
-  background-color:#ff0000;
+  background-color:red;
+}
+.item-img-freetag{
+  padding-top: 10rpx;
+  text-align: center;
+  width:150rpx;
+  height:60rpx;
+  color: #ffffff;
+  position:absolute;
+  font-size: 10pt;
+  border-top-right-radius:10rpx; 
+  border-bottom-left-radius:10rpx;
+  right:0px; 
+  top:0px; 
+  background-color:green;
 }
 .item-img-tag2{
   padding-top: 10rpx;

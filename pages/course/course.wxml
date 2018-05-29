@@ -7,15 +7,39 @@
 <i class="icon iconfont icon-more text-gray"></i>
 </view> -->
 
-<view class='item'>
+<block wx:if="{{(item.type=='yinpin')}}">
 
-<image  src='{{imgpre}}{{item.Cover}}' mode='top'   class='item-img'></image>
-
+<view class='item' bindtap='navyinpincontent'  data-id="{{item.Id}}">
+<view  class='item-img-icon'>
+<image  src='{{imgpre}}{{item.Cover}}' mode='scaleToFill'   class='item-img'></image>
+<text class='item-img-tag'>免费音频</text>
+</view>
 <view class='item-info'>
 <text class='item-info-title'>{{item.Title}}</text>
-<text class='item-info-small'>类型：音频</text>
+<text class='item-info-small'>作者：{{item.Author}}</text>
 </view>
 </view>
+
+</block>
+
+<block wx:if="{{(item.type=='shipin')}}">
+
+<view class='item' bindtap='navshipincontent'  data-id="{{item.Id}}">
+<view  class='item-img-icon'>
+<image  src='{{imgpre}}{{item.Cover}}' mode='scaleToFill'   class='item-img'></image>
+<text class='item-img-freetag'>会员专享</text>
+</view>
+<view class='item-info'>
+<text class='item-info-title'>{{item.Title}}</text>
+<text class='item-info-small'>作者：{{item.Author}}</text>
+</view>
+</view>
+
+</block>
+
+
+
+
 
 </block>
 

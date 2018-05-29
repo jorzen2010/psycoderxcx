@@ -1,4 +1,4 @@
-@import "../../utils/wxParse/wxParse.wxss";
+ @import "../../utils/wxParse/wxParse.wxss"; 
 .content_container{
   padding: 10px;
   display: flex;
@@ -24,4 +24,9 @@
   color: #888888;
   padding-top:20px;
   padding-bottom: 20px;
+}
+.adcontainer{
+  padding: 10px;
+  background-color: #eeeeee;
+  font-size: 10pt;
 }

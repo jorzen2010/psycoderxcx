@@ -32,6 +32,17 @@ Page({
 
     
   },
+  navshipincontent: function (event) {
+
+      wx.navigateTo({
+        url: "../../pages/videoview/videoview?id=" + event.currentTarget.dataset.id
+      })
+  },
+  navyinpincontent: function (event) {
+    wx.navigateTo({
+      url: "../../pages/audioview/audioview?id=" + event.currentTarget.dataset.id
+    })
+  },
 
   
 })

@@ -8,14 +8,14 @@ Page({
   },
   onLoad: function (option) {
     this.setData({
-     // id: option.id
-      id: 3
+      id: option.id,
+      sucaitype: option.type
     })
     console.log(option.id);
     console.log(this.data.id);
     var that = this//不要漏了这句，很重要
     wx.request({
-      url: app.globalData.apiUrl + 'api/GetXCXVideoSucai?cid=' + this.data.id,
+      url: app.globalData.apiUrl + '/api/GetXCXVideoSucai?cid=' + this.data.id,
       headers: {
         'Content-Type': 'application/json'
       },
