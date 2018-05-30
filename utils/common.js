@@ -59,10 +59,21 @@ function sec_to_time(s) {
       t = hour + ":";
     }
 
+    if(hour==0)
+    {
+      t="";
+    }
+
     if (min < 10) { t += "0"; }
     t += min + ":";
     if (sec < 10) { t += "0"; }
-    t += sec.toFixed(2);
+   // t += sec.toFixed(2);
+     t+=sec;
+  }
+
+  if(s==0)
+  {
+    t="00:00";
   }
   return t;
 }

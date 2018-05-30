@@ -1,4 +1,4 @@
-var util = require("../../utils/common.js");
+
 const app = getApp();
 Page({
   data: {

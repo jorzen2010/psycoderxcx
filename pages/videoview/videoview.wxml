@@ -1,14 +1,22 @@
-<view>
-<text>
-{{sucai.Title}}
-{{videoUrlfo.PlayInfoList.PlayInfo[1].PlayURL}}
+<view class='vidocontainer'>
+<view class='videobofangqi'>
+<view class='video_title'>
+<text>{{sucai.Title}}</text>
+</view>
 
-</text>
+ 
+<video id="myVideo" src="{{videoUrlfo.PlayInfoList.PlayInfo[1].PlayURL}}" enable-danmu danmu-btn controls class='videosrc'></video> 
+
+</view>
 
 
 
 
-
-  <video id="myVideo" src="{{videoUrlfo.PlayInfoList.PlayInfo[1].PlayURL}}" enable-danmu danmu-btn controls class='videosrc'></video>
+<view class='audioinfo'>
+<text  class='audioinfo_title'>课程简介</text>
+<view  class='audioinfo_content'>
+{{sucai.Info}}课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介
+</view>
+</view>
 
 </view>

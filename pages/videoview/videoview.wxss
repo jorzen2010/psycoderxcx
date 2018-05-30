@@ -1,3 +1,38 @@
+.vidocontainer{
+  background-color: #eeeeee;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.videobofangqi{
+  display: flex;
+  flex-flow: column;
+  background-color: #ffffff;
+}
+.video_title{
+  padding: 5px;
+  font-size: 14pt;
+  font-weight: 800;
+  color: #333333;
+}
 .videosrc{
   width: 100%;
+}
+
+
+.audioinfo{
+  margin-top: 10px;
+  background-color: #ffffff;
+  padding: 10px;
+}
+.audioinfo_title{
+  font-size: 14pt;
+  font-weight: 500;
+  color: #333333;
+  padding-bottom: 10px;
+}
+.audioinfo_content{
+  font-size: 12px;
+  line-height: 25px;
+  color: #999999;
 }
