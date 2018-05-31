@@ -36,7 +36,21 @@
   color: #888888;
   font-size: 12pt;
 }
-
+.bg_info_color{
+  background-color: #5bc0de;
+}
+.bg_primary_color{
+  background-color: #337ab7;
+}
+.bg_danger_color{
+  background-color: #d9534f;
+}
+.bg_warnning_color{
+  background-color: #f0ad4e;
+}
+.bg_success_color{
+  background-color: #5cb85c;
+}
 
 
 @font-face {font-family: "iconfont";

@@ -24,7 +24,7 @@ Page({
               that.setData({
                 sclist: result,
               });
-              console.log(result);
+            //  console.log(result);
             });
             //  console.log(res.data.selectsucai);
           }

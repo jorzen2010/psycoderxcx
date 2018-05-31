@@ -1,12 +1,13 @@
 <!--index.wxml-->
 <view class='list_container'>
-<block>
-<text class='list_Title'>作者推荐{{pagecount}}</text>
-</block>
-<view wx:for="{{sclist}}" wx:key="key">
+<text class='list_Title'>精选推荐{{pagecount}}</text>
+<block wx:for="{{sclist}}" wx:key="key">
+
 <view class="list_item"  bindtap="navcontent"  data-id="{{item.Id}}">
 <text class='list_item_title'>{{item.Title}}</text>
 <i class="icon iconfont icon-more text-gray"></i>
 </view>
-</view>
+
+</block>
+
 </view>

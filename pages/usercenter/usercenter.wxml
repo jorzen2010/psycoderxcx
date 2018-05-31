@@ -1,0 +1,44 @@
+<view class='uccontainer'>
+
+<block wx:if="{{ifhasuserInfo}}">
+<view>显示用户信息
+{{userInfo.avatarUrl}}
+</view>
+</block>
+
+<block wx:else>
+<view>
+ <button open-type="getUserInfo" type="primary" bindgetuserinfo="bindgetuserinfo">请先授权登录</button> 
+</view>
+</block>
+
+<!--<view class='list_container'>
+
+
+<view class="list_item">
+<text class='list_item_title'>我的自由书写</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+
+<view class="list_item">
+<text class='list_item_title'>我的认知发现</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+
+<view class="list_item">
+<text class='list_item_title'>我的留言咨询</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+
+<view class="list_item">
+<text class='list_item_title'>绑定手机号</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+
+<view class="list_item">
+<text class='list_item_title'>咨询师介绍</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+
+</view> -->
+</view>

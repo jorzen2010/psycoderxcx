@@ -2,14 +2,43 @@
 <view class='avatarcontainer'>
 <image src='{{imgpre}}{{zixunshi.PsyAvatar}}' class='avatar'></image>
 <text class='title'>{{zixunshi.PsyNickName}}</text>
-<text class='Info'>{{zixunshi.PsyInfo}}</text>
+<text class='info'>{{zixunshi.PsyInfo}}</text>
 </view>
 
 <view class='btncontainer'>
-<button type='primary' size='mini'>自由倾诉</button>
-<button type='primary' size='mini'>认知发现</button>
-<button type='primary' size='mini'>留言咨询</button>
-<button type='warn' size='mini'>成为会员</button>
+
+<view class='psybtncontainer'>
+<view class='psybtn bg_success_color'>
+<image src='../../src/images/ziyou.png' style='width:25px; height:25px;'></image>
+</view>
+<text class='psybtntext'>自由倾诉</text>
+</view>
+
+<view class='psybtncontainer'>
+<view class='psybtn bg_info_color'>
+<image src='../../src/images/wenti.png' style='width:25px; height:25px;'></image>
+</view>
+<text>认知升级</text>
+</view>
+
+<view class='psybtncontainer'>
+<view class='psybtn bg_warnning_color'>
+<image src='../../src/images/zixun.png' style='width:25px; height:25px;'></image>
+</view>
+<text>留言咨询</text>
+</view>
+
+<view class='psybtncontainer'>
+<view class='psybtn bg_danger_color'>
+<image src='../../src/images/huiyuan.png' style='width:25px; height:25px;'></image>
+</view>
+<text>升级会员</text>
+</view>
+
+
+
+
+
 </view>
 
 <view class='infocontainer'>

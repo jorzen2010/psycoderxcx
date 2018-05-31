@@ -1,32 +1,19 @@
-.avatar{
-  margin-top: 20px;
-  border: 5px solid #eeeeee;
-  border-radius:10%; 
-  width: 150px;
-  height: 150px;
-}
 .avatarcontainer{
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+.avatar{
+  margin-top: 120px;
+  border: 5px solid #eeeeee;
+  border-radius:10%; 
+  width: 50px;
+  height: 50px;
+}
+
 .title{
-  font-size:30pt;
+  font-size:14pt;
   font-weight: 500;
-}
-.userinfo{
-  padding: 20px 0px 20px 0px;
-  margin-top: 20px;
-  width: 280px;
-  height: 150px;
-  border: 2px solid #dddddd;
-  border-radius:20px; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.useravatar{
-  width: 60px;
-  height: 60px;
-  border-radius:50%; 
+  color: #888888;
+  margin-bottom: 120px;
 }

@@ -1,68 +1,40 @@
 //获取应用实例
 var util = require("../../utils/common.js");
+const psycoder = require('../../utils/psycoder.js')
 const app = getApp();
 var page = 1;
 Page({
   data:{
-    sclist:[],
-    pagecount:''
+    imgpre: app.globalData.apiUrl,
+    sclist: [],
+    sucai: {},
+    pagecount:0
   },
-  showok: function () {
-    wx.showToast({
-      title: '成功',
-      icon: 'success',
-      duration: 2000
-    })
-  },
-  modalcnt: function (event) {
-    wx.showModal({
-      title: '提示',
-      content: '这是一个模态弹窗' + event.target.dataset.id,
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
-  },
-  actionsheet:function(){
-    wx.showActionSheet({
-      itemList: ['A', 'B', 'C'],
-      success: function (res) {
-        console.log(res.tapIndex)
-      },
-      fail: function (res) {
-        console.log(res.errMsg)
-      }
-    })
-  },
+
   onLoad: function () {
     var that = this//不要漏了这句，很重要
+    
     wx.request({
-      url: app.globalData.apiUrl+"/api/test",
+      url: app.globalData.apiUrl + "/api/GetSelectedTuwenXCXSucaiList?pid=" + app.globalData.zixunshi_id,
       headers: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
-
-        // var sucailist = res.data.xcxsucai;
-        // for (var i = 0; i < sucailist.length; i++) {
-          
-        //   sucailist[i].CreateTime = util.formatTime(sucailist[i].CreateTime);
-        // }
-        //将获取到的json数据，存在名字叫zhihu的这个数组中
         that.setData({
-          sclist: res.data.xcxsucai,
-          pagecount: res.data.pagecount
-          
-          //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
-
+          pagecount: res.data.pagecount,
         });
-        console.log('成功获取数据');
+        // resolve(res.data.selectsucai);
+        Promise.all(res.data.selectsucai.map(item => psycoder.getSucaiById(item.Sucai)))
+          .then(function (result) {
+            that.setData({
+              sclist: result,
+            });
+            console.log(result);
+          });
+        //  console.log(res.data.selectsucai);
       }
-    })
+    });
+
   },
   navcontent: function (event){
     //这种方式不能链接tab里的内容
@@ -80,29 +52,39 @@ Page({
     {
     page++;
     wx.request({
-      url: app.globalData.apiUrl +'/api/test?page='+page,
+      url: app.globalData.apiUrl + "/api/GetSelectedTuwenXCXSucaiList?pid=" + app.globalData.zixunshi_id+"&page="+page,
+    //  url: app.globalData.apiUrl +'/api/test?page='+page,
       method: 'GET',
       header: {
         'content-type': 'application/json'
       },
       success: function (res) {
+
+        Promise.all(res.data.selectsucai.map(item => psycoder.getSucaiById(item.Sucai)))
+          .then(function (result) {
+            // that.setData({
+            //   sclist: result,
+            // });
+            // console.log(result);
+            for (var i = 0; i < result.length; i++) {
+              allMsg.push(result[i]);
+              console.log(result[i].Id);
+            }
+            that.setData({
+              sclist: allMsg
+            });
+
+
+          });
         // 不能直接 allMsg.push(res); 相当于list.push(list);打乱了结构  
-        for (var i = 0; i < res.data.xcxsucai.length; i++) {
-          allMsg.push(res.data.xcxsucai[i]);
-          console.log(res.data.xcxsucai[i].Id);
-        }
-        that.setData({
-          sclist: allMsg
-        });
-        
-       // that.setData({
-       //   moment: res.data.data
-      //  });
-        // 设置数组元素  
-       // that.setData({
-      //    moment: that.data.moment
-      //  });
-       // console.log(that.data.moment);
+        // for (var i = 0; i < res.data.xcxsucai.length; i++) {
+        //   allMsg.push(res.data.xcxsucai[i]);
+        //   console.log(res.data.xcxsucai[i].Id);
+        // }
+        // that.setData({
+        //   sclist: allMsg
+        // });
+
         // 隐藏导航栏加载框  
         wx.hideNavigationBarLoading();
         // 停止下拉动作  

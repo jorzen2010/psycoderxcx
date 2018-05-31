@@ -51,5 +51,38 @@ Page({
         currentTab: e.target.dataset.current
       })
     }
-  }
+  },
+    // showok: function () {
+  //   wx.showToast({
+  //     title: '成功',
+  //     icon: 'success',
+  //     duration: 2000
+  //   })
+  // },
+  // modalcnt: function (event) {
+  //   wx.showModal({
+  //     title: '提示',
+  //     content: '这是一个模态弹窗' + event.target.dataset.id,
+  //     success: function (res) {
+  //       if (res.confirm) {
+  //         console.log('用户点击确定')
+  //       } else if (res.cancel) {
+  //         console.log('用户点击取消')
+  //       }
+  //     }
+  //   })
+  // },
+  // actionsheet:function(){
+  //   wx.showActionSheet({
+  //     itemList: ['A', 'B', 'C'],
+  //     success: function (res) {
+  //       console.log(res.tapIndex)
+  //     },
+  //     fail: function (res) {
+  //       console.log(res.errMsg)
+  //     }
+  //   })
+  // },
+
+
 })  

@@ -16,6 +16,11 @@
   font-size:30pt;
   font-weight: 500;
 }
+.info{
+  text-align: center;
+  padding: 5px 10px;
+  color: #cccccc;
+}
 .avatar{
   margin-top: 20px;
   border: 5px solid #eeeeee;
@@ -24,14 +29,7 @@
   height: 150px;
 }
 
-.btncontainer{
-  display:flex;
-  flex-direction:row;
-  justify-content: center;
-   background-color: #ffffff;
-  padding: 10px 0px;
-  margin-bottom: 10px;
-}
+
 .infocontainer{
   padding: 10px;
   background-color: #ffffff;
@@ -48,4 +46,30 @@
   font-size: 12pt;
   color: #888888;
   line-height: 25px;
+}
+
+.btncontainer{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-around;
+  background-color: #ffffff;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+}
+.psybtncontainer{
+ display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
+.psybtn{
+  border-radius: 50%;
+  display:flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  width: 55px;
+  height: 50px;
+  padding-bottom: 5px;
 }
