@@ -1,0 +1,24 @@
+<view class='ziyoucontainer'>
+
+<form  bindsubmit="formSubmit">
+
+
+<view>
+<text>
+{{hudong.ZiyoushuxiePre}}
+</text>
+<view>
+
+</view>
+<view class='formitem'>
+    <textarea placeholder="请在这里输入" class='textcontent' name="ziyoushuxie" />
+</view>
+ <view class='formitem'>
+<button type="primary"  formType="submit">提交</button>
+</view>
+</view>
+
+</form>
+
+
+</view>

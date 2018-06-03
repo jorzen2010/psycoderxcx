@@ -1,0 +1,60 @@
+page{
+  background-color: #eeeeee;
+}
+.uccontainer{
+  background-color: #eeeeee;
+  width: 100%;
+  height: 100%;
+  display:flex;
+  flex-direction:column;
+}
+.userinfo{
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0px;
+  margin-bottom: 10px;
+}
+.useravatar{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px 0px;
+
+}
+
+
+
+
+
+.usersetting{
+  margin-top: 20px;
+  background-color: #ffffff;
+  height: auto;
+}
+.setting_item{
+  height: 50px;
+  line-height: 50px;
+  margin-left: 5px;
+  padding:0px 10px;
+  border-bottom: 1px solid #eeeeee;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.item_left{
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+}
+.item_left_icon{
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; 
+  margin-right: 5px;
+}

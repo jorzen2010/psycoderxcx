@@ -8,13 +8,15 @@
     "pages/course/course",
     "pages/videoview/videoview",
     "pages/audioview/audioview",
-    "pages/usercenter/usercenter"
+    "pages/usercenter/usercenter",
+    "pages/ziyou/ziyou"
   ],
   "window":{
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"black",
+    "backgroundColor":"#eee"
   },
   "tabBar": {
     "color":"#aaa",

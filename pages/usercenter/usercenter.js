@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: app.globalData.userInfo,
+    userInfo: {},
     ifhasuserInfo: app.globalData.ifauthuserinfo
     
   },
@@ -16,32 +16,14 @@ Page({
    */
   onLoad: function () {
     var that=this;
-    if(that.data.userInfo)
-    {
+  
       that.setData({
+        userInfo: app.globalData.userInfo,
         ifhasuserInfo:true
       })
-    }
-    else
-    {
-      that.setData({
-        ifhasuserInfo: false
-      })
-    }
   
   },
 
-  bindgetuserinfo:function(e){
-    var that=this;
-    console.log(e);
-    console.log(e.detail.userInfo);
-    app.globalData.userInfo = e.detail.userInfo;
-    app.globalData.ifauthuserinfo=true;
-    that.setData({
-      userInfo:e.detail.userInfo,
-      ifhasuserInfo: true
-    })
-  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

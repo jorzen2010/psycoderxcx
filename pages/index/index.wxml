@@ -7,21 +7,21 @@
 
 <view class='btncontainer'>
 
-<view class='psybtncontainer'>
+<view class='psybtncontainer' bindtap='gotoNav' data-id="ziyou">
 <view class='psybtn bg_success_color'>
 <image src='../../src/images/ziyou.png' style='width:25px; height:25px;'></image>
 </view>
 <text class='psybtntext'>自由倾诉</text>
 </view>
 
-<view class='psybtncontainer'>
+<view class='psybtncontainer' bindtap='gotoNav' data-id="renzhi">
 <view class='psybtn bg_info_color'>
 <image src='../../src/images/wenti.png' style='width:25px; height:25px;'></image>
 </view>
 <text>认知升级</text>
 </view>
 
-<view class='psybtncontainer'>
+<view class='psybtncontainer' bindtap='gotoNav' data-id="zixun">
 <view class='psybtn bg_warnning_color'>
 <image src='../../src/images/zixun.png' style='width:25px; height:25px;'></image>
 </view>
@@ -54,17 +54,6 @@
 
 </view>
 
-<!-- <view class='list_container'>
 
-<text class='list_Title'>作者精选</text>
-
-<view wx:for="{{topsucailist}}" wx:key="key">
-<view class="list_item"  bindtap="navcontent"  data-id="{{item.Id}}">
-<text class='list_item_title'>{{item.Title}}</text>
-<i class="icon iconfont icon-more text-gray"></i>
-</view>
-</view>
-
-</view> -->
 
 </view>
