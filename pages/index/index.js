@@ -53,13 +53,13 @@ Page({
     }
     if (event.currentTarget.dataset.id == 'renzhi') {
       wx.navigateTo({
-        url: "../../pages/ziyou/ziyou"
+        url: "../../pages/question/question"
       })
     }
 
     if (event.currentTarget.dataset.id == 'zixun') {
       wx.navigateTo({
-        url: "../../pages/ziyou/ziyou"
+        url: "../../pages/zixun/zixun"
       })
     }
 

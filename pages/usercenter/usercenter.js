@@ -7,7 +7,10 @@ Page({
    */
   data: {
     userInfo: {},
-    ifhasuserInfo: app.globalData.ifauthuserinfo
+    ifhasuserInfo: app.globalData.ifauthuserinfo,
+    ziyoucount:0,
+    zixuncount:0,
+    questioncount:0
     
   },
 
@@ -16,6 +19,9 @@ Page({
    */
   onLoad: function () {
     var that=this;
+    that.getZiyouReplyCount(app.globalData.zixunshi_id);
+    that.getZixunReplyCount(app.globalData.zixunshi_id);
+    that.getQuestionReplyCount(app.globalData.zixunshi_id);
   
       that.setData({
         userInfo: app.globalData.userInfo,
@@ -73,4 +79,58 @@ Page({
   onShareAppMessage: function () {
     
   },
+
+  getZiyouReplyCount:function(){
+    var that = this;
+
+    wx.request({
+      url: app.globalData.apiUrl + '/api/GetZiyoushuxieCount?pid=' + app.globalData.zixunshi_id + '&fid=' + app.globalData.fensi_id,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          ziyoucount:res.data,
+        })
+
+      }
+    })
+  },
+
+  getZixunReplyCount: function () {
+    var that = this;
+
+    wx.request({
+      url: app.globalData.apiUrl + '/api/GetZixunCount?pid=' + app.globalData.zixunshi_id + '&fid=' + app.globalData.fensi_id,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          zixuncount: res.data,
+        })
+
+      }
+    })
+  },
+
+  getQuestionReplyCount: function () {
+    var that = this;
+    wx.request({
+      url: app.globalData.apiUrl + '/api/GetQuestionReplyCount?pid=' + app.globalData.zixunshi_id + '&fid=' + app.globalData.fensi_id,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        that.setData({
+          questioncount: res.data,
+        })
+
+      }
+    })
+  },
+
 })

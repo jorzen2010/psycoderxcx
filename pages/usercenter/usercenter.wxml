@@ -30,7 +30,7 @@
 <text>自由倾诉</text>
 </view>
 <view class='item_left'>
-0 次
+{{ziyoucount}} 次
 </view>
 </view>
 
@@ -42,7 +42,7 @@
 <text>认知升级</text>
 </view>
 <view class='item_left'>
-0 次
+{{zixuncount}}  次
 </view>
 </view>
 
@@ -54,7 +54,7 @@
 <text>留言咨询</text>
 </view>
 <view class='item_left'>
-0 次
+{{questioncount}}  次
 </view>
 </view>
 

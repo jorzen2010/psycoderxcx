@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<view class='list_container'>
+<text class='list_Title'>认知升级实现心理自助{{pagecount}}</text>
+<block wx:for="{{qlist}}" wx:key="key">
+
+<view class="list_item"  bindtap="navcontent"  data-id="{{item.Id}}">
+<text class='list_item_title'>{{item.Title}}</text>
+<i class="icon iconfont icon-more text-gray"></i>
+</view>
+
+</block>
+
+</view>

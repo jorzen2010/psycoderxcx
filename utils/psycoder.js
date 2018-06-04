@@ -78,6 +78,19 @@ const CreateFensi = (openid) => new Promise((resolve) => {
 
 });
 
+//通过ID获取问题
+const getQuestionById = (qid) => new Promise((resolve) => {
+  wx.request({
+    url: app.globalData.apiUrl + "/api/GetQuestionById?qid=" + qid,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    success: function (res) {
+      resolve(res.data);
+      //  console.log(res.data);
+    },
+  });
+});
 
 
 
@@ -88,5 +101,6 @@ module.exports = {
   getVideoSucaiById: getVideoSucaiById,
   fensiLogin: fensiLogin,
   GetFensiByopenid: GetFensiByopenid,
-  CreateFensi: CreateFensi
+  CreateFensi: CreateFensi,
+  getQuestionById: getQuestionById
 }

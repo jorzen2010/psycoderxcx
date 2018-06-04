@@ -9,7 +9,9 @@
     "pages/videoview/videoview",
     "pages/audioview/audioview",
     "pages/usercenter/usercenter",
-    "pages/ziyou/ziyou"
+    "pages/ziyou/ziyou",
+    "pages/zixun/zixun",
+    "pages/question/question"
   ],
   "window":{
     "backgroundTextStyle":"dark",

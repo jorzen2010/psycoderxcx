@@ -5,15 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hudong:{},
-    fensi_id:''
+    qlist:[],
+    hudong: {},
+    fensi_id: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this;
+    var that = this;
 
     wx.request({
       url: app.globalData.apiUrl + '/api/hudongset?pid=' + app.globalData.zixunshi_id,
@@ -21,13 +22,18 @@ Page({
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        that.setData({
-          hudong:res.data
-        })
+        console.log(res.data.QuestionSelected);
+        // Promise.all(res.data.QuestionSelected.map(item => psycoder.getSucaiById(item)))
+        //   .then(function (result) {
+        //     that.setData({
+        //       sclist: result,
+        //     });
+        //     //  console.log(result);
+        //   });
 
       }
     })
-    
+
   },
 
   /**
@@ -78,24 +84,24 @@ Page({
   onShareAppMessage: function () {
     
   },
-  formSubmit:function(e){
-    var that=this;
+  formSubmit: function (e) {
+    var that = this;
     that.setData({
       fensi_id: app.globalData.fensi_id
     });
 
-  //  console.log(e.detail.value.ziyoushuxie);
+    //  console.log(e.detail.value.ziyoushuxie);
     wx.request({
-      url: app.globalData.apiUrl + '/api/CreateZiyoushuxieReply?pid=' + app.globalData.zixunshi_id + '&fid=' + app.globalData.fensi_id + '&ReplyContent=' + e.detail.value.ziyoushuxie,
+      url: app.globalData.apiUrl + '/api/CreateZixunReply?pid=' + app.globalData.zixunshi_id + '&fid=' + app.globalData.fensi_id + '&ReplyContent=' + e.detail.value.ziyoushuxie,
       headers: {
         'Content-Type': 'application/json'
       },
-      success: function (res){
+      success: function (res) {
         console.log(res.data);
-        wx.showModal({
-          title: '自由倾诉书写成功',
-          content: '如果你想得到回复，请根据',
-        })
+        // wx.showModal({
+        //   title: '自由倾诉书写成功',
+        //   content: '如果你想得到回复，请根据',
+        // })
 
       }
     })
