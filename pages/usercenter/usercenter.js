@@ -132,5 +132,12 @@ Page({
       }
     })
   },
+  aboutsoftware:function(){
+    wx.showModal({
+      title: '软件信息',
+      content: '如使用中遇到问题，可联系软件管理员微信sky0100',
+      showCancel:false
+    })
+  }
 
 })

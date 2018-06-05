@@ -54,7 +54,7 @@
 <text>留言咨询</text>
 </view>
 <view class='item_left'>
-{{questioncount}}  次
+{{questioncount.pagecount}}  次
 </view>
 </view>
 
@@ -74,20 +74,16 @@
 </view>
 </view>
 
-<view class='setting_item'>
+<view class='setting_item' bindtap='aboutsoftware'>
 <view class='item_left'>
 <view class='item_left_icon bg_success_color'>
 <image src='../../src/images/ziyou.png' style='width:15px; height:15px;'></image>
 </view>
-<text>设置</text>
+<text>关于本软件</text>
 </view>
 
 </view>
 
 </view>
-
-
-
-
 
 </view>  

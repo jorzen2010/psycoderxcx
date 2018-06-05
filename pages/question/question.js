@@ -1,3 +1,4 @@
+const psycoder = require('../../utils/psycoder.js')
 const app = getApp();
 Page({
 
@@ -23,13 +24,15 @@ Page({
       },
       success: function (res) {
         console.log(res.data.QuestionSelected);
-        // Promise.all(res.data.QuestionSelected.map(item => psycoder.getSucaiById(item)))
-        //   .then(function (result) {
-        //     that.setData({
-        //       sclist: result,
-        //     });
-        //     //  console.log(result);
-        //   });
+        var strs = new Array(); //定义一数组  
+        strs = res.data.QuestionSelected.split(","); //字符分割
+        Promise.all(strs.map(item => psycoder.getQuestionById(item)))
+          .then(function (result) {
+            that.setData({
+              qlist: result,
+            });
+              console.log(result);
+          });
 
       }
     })
@@ -84,26 +87,11 @@ Page({
   onShareAppMessage: function () {
     
   },
-  formSubmit: function (e) {
-    var that = this;
-    that.setData({
-      fensi_id: app.globalData.fensi_id
-    });
-
-    //  console.log(e.detail.value.ziyoushuxie);
-    wx.request({
-      url: app.globalData.apiUrl + '/api/CreateZixunReply?pid=' + app.globalData.zixunshi_id + '&fid=' + app.globalData.fensi_id + '&ReplyContent=' + e.detail.value.ziyoushuxie,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data);
-        // wx.showModal({
-        //   title: '自由倾诉书写成功',
-        //   content: '如果你想得到回复，请根据',
-        // })
-
-      }
+ 
+  navcontent: function (event) {
+    
+    wx.navigateTo({
+      url: "../../pages/questionreply/questionreply?id=" + event.currentTarget.dataset.id
     })
-  }
+  },
 })

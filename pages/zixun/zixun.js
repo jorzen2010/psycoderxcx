@@ -86,16 +86,25 @@ Page({
 
     //  console.log(e.detail.value.ziyoushuxie);
     wx.request({
-      url: app.globalData.apiUrl + '/api/CreateZixunReply?pid=' + app.globalData.zixunshi_id + '&fid=' + app.globalData.fensi_id + '&ReplyContent=' + e.detail.value.ziyoushuxie,
+      url: app.globalData.apiUrl + '/api/CreateZixunReply?pid=' + app.globalData.zixunshi_id + '&fid=' + app.globalData.fensi_id + '&ReplyContent=' + e.detail.value.zixun,
       headers: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
         console.log(res.data);
-        // wx.showModal({
-        //   title: '自由倾诉书写成功',
-        //   content: '如果你想得到回复，请根据',
-        // })
+        wx.showModal({
+          title: '留言成功',
+          content: '请在首页最下方使用微信联系我',
+          showCancel: false,
+          success: function (res) {
+            if (res.confirm) {
+              wx.switchTab({
+                url: '../../pages/index/index',
+              })
+            }
+
+          }
+        })
 
       }
     })

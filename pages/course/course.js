@@ -26,7 +26,7 @@ Page({
               });
             //  console.log(result);
             });
-            //  console.log(res.data.selectsucai);
+          console.log(res.data.selectsucai);
           }
         });
 

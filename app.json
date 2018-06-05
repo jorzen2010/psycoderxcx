@@ -11,7 +11,9 @@
     "pages/usercenter/usercenter",
     "pages/ziyou/ziyou",
     "pages/zixun/zixun",
-    "pages/question/question"
+    "pages/question/question",
+    "pages/questionreply/questionreply",
+    "pages/vipuser/vipuser"
   ],
   "window":{
     "backgroundTextStyle":"dark",

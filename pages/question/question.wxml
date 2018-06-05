@@ -4,8 +4,8 @@
 <block wx:for="{{qlist}}" wx:key="key">
 
 <view class="list_item"  bindtap="navcontent"  data-id="{{item.Id}}">
-<text class='list_item_title'>{{item.Title}}</text>
-<i class="icon iconfont icon-more text-gray"></i>
+<text class='list_item_title'>{{item.QuestionTitle}}</text>
+
 </view>
 
 </block>

@@ -63,6 +63,12 @@ Page({
       })
     }
 
+    if (event.currentTarget.dataset.id == 'vip') {
+      wx.navigateTo({
+        url: "../../pages/vipuser/vipuser"
+      })
+    }
+
    
   },
   getpsyUserInfo: function () {

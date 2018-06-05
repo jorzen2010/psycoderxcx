@@ -28,7 +28,7 @@
 <text>留言咨询</text>
 </view>
 
-<view class='psybtncontainer'>
+<view class='psybtncontainer' bindtap='gotoNav' data-id="vip">
 <view class='psybtn bg_danger_color'>
 <image src='../../src/images/huiyuan.png' style='width:25px; height:25px;'></image>
 </view>

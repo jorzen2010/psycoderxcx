@@ -1,17 +1,18 @@
 <view class='ziyoucontainer'>
+<text>
+{{hudong.QuestionPre}}
+</text>
 
 <form  bindsubmit="formSubmit">
 
 
 <view>
 <text>
-{{hudong.ZixunPre}}
+{{question.QuestionTitle}}
 </text>
-<view>
 
-</view>
 <view class='formitem'>
-    <textarea placeholder="请在这里输入" class='textcontent' name="zixun" />
+<textarea placeholder="请在这里输入" class='textcontent' name="qreply" />
 </view>
  <view class='formitem'>
 <button type="primary"  formType="submit">提交</button>
