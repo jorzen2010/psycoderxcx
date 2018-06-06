@@ -3,7 +3,8 @@ const app = getApp();
 Page({
   data: {
     imgpre: app.globalData.apiUrl,
-    zixunshi: {}
+    zixunshi: {},
+    ifloadsuccess:false
   },
   onLoad: function () {
     var that = this
@@ -81,6 +82,7 @@ Page({
       success: function (res) {
         that.setData({
           zixunshi: res.data,
+          ifloadsuccess:true
         })
       }
     })

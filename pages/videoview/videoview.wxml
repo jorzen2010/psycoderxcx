@@ -4,8 +4,9 @@
 <text>{{sucai.Title}}</text>
 </view>
 
- 
+ <block wx:if="{{videoUrlfo}}">
 <video id="myVideo" src="{{videoUrlfo.PlayInfoList.PlayInfo[1].PlayURL}}" enable-danmu danmu-btn controls class='videosrc'></video> 
+</block>
 
 </view>
 

@@ -1,3 +1,15 @@
+<block wx:if="{{!ifloadsuccess}}">
+<view class='loadingcontainer'>
+<image src='../../src/images/loading.gif' style='width:100px;height:100px;margin-bottom:10px;'></image>
+<text>正在加载，请稍等</text>
+</view>
+
+</block>
+
+<block wx:else>
+
+
+
 <view class='psycontainer'>
 <view class='avatarcontainer'>
 <image src='{{imgpre}}{{zixunshi.PsyAvatar}}' class='avatar'></image>
@@ -57,3 +69,6 @@
 
 
 </view>
+
+
+</block>
