@@ -1,8 +1,12 @@
  @import "../../utils/wxParse/wxParse.wxss"; 
+ page{
+  background-color: #eeeeee;
+}
 .content_container{
   padding: 10px;
   display: flex;
   flex-direction: column;
+  background-color: #ffffff;
 }
 .title{
   font-size: 17pt;
