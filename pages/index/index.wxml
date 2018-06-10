@@ -54,21 +54,27 @@
 </view>
 
 <view class='infocontainer'>
+
+
 <view class='info_title'>
 <text>自我介绍</text>
 </view>
 <view class='info_content'>{{zixunshi.PsyContent}}</view>
+
+
 <view class='info_title'>
 <text>擅长领域</text>
 </view>
-<view class='info_content'>{{zixunshi.PsyShanchang}}
+<view class='info_content'>
+{{zixunshi.PsyShanchang}}
 </view>
 
+<view class='info_title'>
+<text>联系方式</text>
 </view>
-
-
-
+<view class='info_content'>
+<text>手机号：{{zixunshi.PsyTelephone}} \n微信号：{{zixunshi.PsyWechat}} \nQQ号：{{zixunshi.PsyQQ}} \n</text>
 </view>
-
-
+</view>
+</view>
 </block>

@@ -8,10 +8,8 @@ Page({
   data: {
     userInfo: {},
     ifhasuserInfo: app.globalData.ifauthuserinfo,
-    ziyoucount:0,
-    zixuncount:0,
-    questioncount:0
-    
+    product:{},
+    expireTime:'',
   },
 
   /**
@@ -19,8 +17,22 @@ Page({
    */
   onLoad: function () {
     var that=this;
+    var date = new Date();
+    var myDate = (date.getFullYear()+1) + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     that.setData({
         userInfo: app.globalData.userInfo,
+        expireTime: myDate,
+    });
+    wx.request({
+      url: app.globalData.apiUrl + '/api/GetProductByPid?pid=' + app.globalData.zixunshi_id,
+    headers: {
+      'Content-Type': 'x-www-form-urlencoded'
+    },
+      success:function(res){
+        that.setData({
+          product:res.data,
+        })
+      }
     })
   
   },
@@ -75,19 +87,33 @@ Page({
     
   },
 
-  vipshenqing:function(){
-    wx.showModal({
-      title: '申请成功',
-      content: '申请已收到 \n 小秘书会尽快与您联系',
-      showCancel:false,
-      success:function(res){
-        if(res.confirm){
-          wx.switchTab({
-            url: '../../pages/index/index',
-          })
-        }
+  formSubmit:function(e){
+    var tel = e.detail.value.tel;;
+    console.log(tel);
+    wx.request({
+      url: app.globalData.apiUrl + '/api/CreateVip?pid=' + app.globalData.zixunshi_id + '&cid=' + app.globalData.fensi_id+'&tel='+tel,
+      headers: {
+        'Content-Type': 'x-www-form-urlencoded'
+      },
+      data:{
+        product: this.data.product
+      },
+      success: function (res) {
+        wx.showModal({
+          title: '申请成功',
+          content: '申请已收到 \n 小秘书会尽快与您联系',
+          showCancel: false,
+          success: function (res) {
+            if (res.confirm) {
+              wx.switchTab({
+                url: '../../pages/index/index',
+              })
+            }
+          }
+        })
       }
     })
+    
   }
 
 })

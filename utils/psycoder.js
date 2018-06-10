@@ -31,7 +31,7 @@ const getVideoSucaiById = (cid) => new Promise((resolve) => {
 
 const fensiLogin=(jscode)=>new Promise((resolve)=>{
   wx.request({
-    url: app.globalData.apiUrl + '/api/OnLogin?js_code=' + jscode,
+    url: app.globalData.apiUrl + '/api/OnLogin?js_code=' + jscode + '&pid=' + app.globalData.zixunshi_id,
     headers: {
       'Content-Type': 'application/json'
     },
@@ -71,7 +71,7 @@ const CreateFensi = (openid) => new Promise((resolve) => {
     },
     success: function (res) {
       resolve(res);
-    //console.log(res);
+      //console.log(res);
       console.log(app.globalData.userInfo);
     }
   })

@@ -54,6 +54,11 @@
   line-height: 25px;
 }
 
+.lianxifangshi
+{
+  line-height: 10px;
+}
+
 .btncontainer{
   display:flex;
   flex-direction:row;

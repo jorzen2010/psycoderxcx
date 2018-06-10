@@ -1,4 +1,6 @@
 <view class='uccontainer'>
+
+
 <view class='userinfo'>
 <image src='{{userInfo.avatarUrl}}' class='useravatar'></image>
 <text>{{userInfo.nickName}}</text>
@@ -8,17 +10,22 @@
 
 
 <view class='vipusercontainer'>
+
+<form bindsubmit="formSubmit">
 <view class='vipuser'>
 <text>VIP会员</text>
-<text>365元</text>
+<text>{{product.ProductPrice}}元</text>
 </view>
 <view class='vipuser'>
 <text>有效期一年</text>
-<text>截止2019年5月9日</text>
+<text>截止{{expireTime}}</text>
+</view>
+<view class='vipuser'>
+<input placeholder="请在这里输入手机号码" auto-focus type='number' name='tel'/>
 </view>
 
 
-<button type='warn' bindtap='vipshenqing'>立即申请</button>
+<button type='warn' formType="submit">立即申请</button>
 <view class='vipcontent'>
 <text>
 会员权益 \n
@@ -26,7 +33,12 @@
 2、线下课程优先报名，享受专享折扣。\n
 3、咨询优惠，首次咨询享受八折优惠\n
 </text>
+</view>
 
+</form>
 </view>
-</view>
+
+
+
+
 </view>  
