@@ -1,0 +1,13 @@
+/* info.wxss */
+.telcontainer{
+  margin: 16rpx;
+
+}
+.section{
+  display: flex;
+  flex-direction: row;
+margin: 16rpx 0 16rpx 16rpx;
+padding: 16rpx 0 16rpx 16rpx;
+  border-bottom: 1rpx solid #CFD8DC;
+  justify-content: space-between;
+}

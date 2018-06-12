@@ -17,6 +17,8 @@ Page({
    */
   onLoad: function () {
     var that=this;
+
+
     var date = new Date();
     var myDate = (date.getFullYear()+1) + '-' + (date.getMonth() + 1) + '-' + date.getDate();
     that.setData({
@@ -88,10 +90,8 @@ Page({
   },
 
   formSubmit:function(e){
-    var tel = e.detail.value.tel;;
-    console.log(tel);
     wx.request({
-      url: app.globalData.apiUrl + '/api/CreateVip?pid=' + app.globalData.zixunshi_id + '&cid=' + app.globalData.fensi_id+'&tel='+tel,
+      url: app.globalData.apiUrl + '/api/CreateVip?pid=' + app.globalData.zixunshi_id + '&cid=' + app.globalData.fensi_id,
       headers: {
         'Content-Type': 'x-www-form-urlencoded'
       },
@@ -114,6 +114,8 @@ Page({
       }
     })
     
-  }
+  },
+
+ 
 
 })

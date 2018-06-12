@@ -1,0 +1,20 @@
+<!--info.wxml-->
+<view class="telcontainer">
+<form bindsubmit='SubmitTel'>
+  <view class="section">
+    <input placeholder="请输入手机号码" type="number" maxlength="11" auto-focus bindinput="inputPhoneNum" />
+  </view>
+
+  <view class="section">
+    
+    <input placeholder="短信验证码" type="number"  name='smscode'/>
+    <button type='warn' size='mini' disabled='{{disabled}}' bindtap="getCode">{{time}}</button>
+  </view>
+<view>
+<button type='primary' form-type='submit'>确认绑定</button>
+
+</view>
+</form>
+
+
+</view>

@@ -1,3 +1,4 @@
+var util = require("../../utils/common.js");
 const app = getApp();
 
 Page({
@@ -137,6 +138,57 @@ Page({
       title: '软件信息',
       content: '如使用中遇到问题，可联系软件管理员微信sky0100',
       showCancel:false
+    })
+  },
+  bindtel:function(){
+    wx.navigateTo({
+      url: '../../pages/bindtel/bindtel',
+    })
+  },
+  VipBtn: function () {
+    wx.request({
+      url: app.globalData.apiUrl + '/api/GetVipOrderByFensiId?cid=' + app.globalData.fensi_id,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        if (res.data.ifHasVip) {
+          wx.showModal({
+            title: '温馨提示',
+            content: '你已经是会员了, 到期时间为：' + util.formatDateStamp(res.data.order.ExpiryTime, "short"),
+            showCancel: false,
+          })
+        }
+        else {
+          wx.request({
+            url: app.globalData.apiUrl + '/api/GetFensiById?cid=' + app.globalData.fensi_id,
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            success: function (res) {
+
+              if (res.data.ifHasTel) {
+                wx.navigateTo({
+                  url: '../../pages/vipuser/vipuser',
+                })
+              }
+              else {
+                wx.showModal({
+                  title: '未绑定手机号',
+                  content: '点击确定先绑定手机号',
+                  showCancel: false,
+                  success: function () {
+                    wx.navigateTo({
+                      url: '../../pages/bindtel/bindtel',
+                    })
+                  }
+                })
+              }
+            }
+          })
+        }
+
+      }
     })
   }
 

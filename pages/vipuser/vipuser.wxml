@@ -20,9 +20,6 @@
 <text>有效期一年</text>
 <text>截止{{expireTime}}</text>
 </view>
-<view class='vipuser'>
-<input placeholder="请在这里输入手机号码" auto-focus type='number' name='tel'/>
-</view>
 
 
 <button type='warn' formType="submit">立即申请</button>

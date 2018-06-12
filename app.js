@@ -39,7 +39,7 @@ App({
     ifauthuserinfo:false,
     ifVip:false,
     fensi_id:'0',
-    apiUrl: "http://localhost:3517"
-   // apiUrl:"https://mp.psycoder.zzd123.com"
+   // apiUrl: "http://localhost:3517"
+    apiUrl:"https://mp.psycoder.zzd123.com"
   }
 })

@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class='list_container'>
-<text class='list_Title'>精选推荐{{pagecount}}</text>
+<text class='list_Title'>精选推荐</text>
 <block wx:for="{{sclist}}" wx:key="key">
 
 <view class="list_item"  bindtap="navcontent"  data-id="{{item.Id}}">

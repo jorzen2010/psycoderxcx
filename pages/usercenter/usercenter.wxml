@@ -5,7 +5,8 @@
 </view>
 
 <view class='usersetting'>
-<view class='setting_item'>
+
+<view class='setting_item' bindtap='VipBtn'>
 <view class='item_left'>
 <view class='item_left_icon bg_success_color'>
 <image src='../../src/images/ziyou.png' style='width:15px; height:15px;'></image>
@@ -13,7 +14,7 @@
 <text>VIP会员</text>
 </view>
 <view class='item_left'>
-2018年6月4日到期
+申请
 </view>
 </view>
 </view>
@@ -62,7 +63,7 @@
 
 <view class='usersetting'>
 
-<view class='setting_item'>
+<view class='setting_item' bindtap='bindtel'>
 <view class='item_left'>
 <view class='item_left_icon bg_success_color'>
 <image src='../../src/images/ziyou.png' style='width:15px; height:15px;'></image>
@@ -70,7 +71,7 @@
 <text>手机号</text>
 </view>
 <view class='item_left'>
-17645134197
+修改
 </view>
 </view>
 

@@ -13,7 +13,8 @@
     "pages/zixun/zixun",
     "pages/question/question",
     "pages/questionreply/questionreply",
-    "pages/vipuser/vipuser"
+    "pages/vipuser/vipuser",
+    "pages/bindtel/bindtel"
   ],
   "window":{
     "backgroundTextStyle":"dark",
