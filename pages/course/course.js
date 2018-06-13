@@ -6,13 +6,13 @@ Page({
     imgpre: app.globalData.apiUrl,
     sclist: [],
     sucai: {},
-    pagecount: 0
+    pagecount: 0,
+    ifHasVip:false
   },
   onLoad: function () {
 
     var that = this;
-
-
+    that.GetFensiVip();
         wx.request({
           url: app.globalData.apiUrl + "/api/GetSelectedXCXSucaiList?pid=" + app.globalData.zixunshi_id,
           headers: {
@@ -33,19 +33,51 @@ Page({
           }
         });
 
-    
   },
   navshipincontent: function (event) {
-
+    if (this.data.ifHasVip)
+    {
       wx.navigateTo({
         url: "../../pages/videoview/videoview?id=" + event.currentTarget.dataset.id
       })
+    }
+    else
+    {
+      wx.showModal({
+        title: '会员通知',
+        content: '此课程为会员专享，你可以在首页升级会员',
+        showCancel:false,
+        success:function(){
+          wx.switchTab({
+            url: "../../pages/index/index"
+          })
+        }
+      })
+    }  
+            
   },
   navyinpincontent: function (event) {
-    wx.navigateTo({
-      url: "../../pages/audioview/audioview?id=" + event.currentTarget.dataset.id
-    })
+    if (this.data.ifHasVip) {
+      wx.navigateTo({
+        url: "../../pages/audioview/audioview?id=" + event.currentTarget.dataset.id
+      })
+    }
+    else {
+      wx.showModal({
+        title: '会员通知',
+        content: '此课程为会员专享，你可以在首页升级会员',
+        showCancel: false,
+        success: function () {
+          wx.switchTab({
+            url: "../../pages/index/index"
+          })
+        }
+      })
+    }
+    
   },
+
+
   onPullDownRefresh:function(){
     wx.showNavigationBarLoading();
     var that = this;
@@ -96,7 +128,30 @@ Page({
   onReachBottom:function(){
     var that=this;
     that.onPullDownRefresh();
-  }
+  },
+
+  GetFensiVip: function () {
+    var _this = this;
+    wx.request({
+      url: app.globalData.apiUrl + '/api/GetVipOrderByFensiId?cid=' + app.globalData.fensi_id,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        if (res.data.ifHasVip) {
+          _this.setData({
+            ifHasVip: true
+          })
+
+        }
+        else {
+          _this.setData({
+            ifHasVip: false
+          })
+        }
+      }
+    });
+    },
 
   
 })

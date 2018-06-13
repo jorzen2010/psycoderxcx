@@ -1,4 +1,4 @@
-<block wx:if="{{!ifloadsuccess}}">
+<!-- <block wx:if="{{!ifloadsuccess}}">
 <view class='loadingcontainer'>
 <image src='../../src/images/loading.gif' style='width:100px;height:100px;margin-bottom:10px;'></image>
 <text>正在加载，请稍等</text>
@@ -6,7 +6,7 @@
 
 </block>
 
-<block wx:else>
+<block wx:else> -->
 
 
 
@@ -77,4 +77,4 @@
 </view>
 </view>
 </view>
-</block>
+<!-- </block> -->
