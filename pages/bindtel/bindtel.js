@@ -3,10 +3,11 @@ const app = getApp();
 Page({
   data: {
     disabled: true,
+    btndisabled: true,
     phoneNum: '',
     time: '获取验证码', //倒计时 
     currentTime: 61,
-    smgcode:0
+    smgcode:1
   },
 
   // 手机号部分
@@ -20,15 +21,15 @@ Page({
         })
         console.log('phoneNum' + this.data.phoneNum)
         this.setData({
-          disabled: false
+          disabled: false,
+          btndisabled: false
         })
       }
     } else {
       this.setData({
-        phoneNum: ''
-      })
-      this.setData({
-        disabled: true
+        phoneNum: '',
+        disabled: true,
+        btndisabled: true
       })
     }
   },

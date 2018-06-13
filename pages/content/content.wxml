@@ -1,6 +1,6 @@
 <import src="../../utils/wxParse/wxParse.wxml"/>
 <view class='content_container'>
-<text class='title'>{{sucai.Title}}我想这就是一个人的木我想这就是一个人的</text>
+<text class='title'>{{sucai.Title}}</text>
 <text class='time'>{{sucai.Author}}   {{sucai.CreateTime}}</text>
 
 <block wx:if="{{sucaitype}}">
@@ -17,8 +17,12 @@
 </view>
 <view class='adcontainer'>
 
-<text>
-咨询电话：\n 阿道夫
-</text>
+<block wx:if="{{guanggao.GuanggaoType=='文字广告'}}">
 
+<rich-text nodes="{{guanggao.GuanggaoContent}}"></rich-text>
+</block>
+<block wx:if="{{guanggao.GuanggaoType=='图片广告'}}">
+
+<image src='{{imgpre}}{{guanggao.GuanggaoImgSrc}}' mode='aspectFit' style='width:100%'></image>
+</block>
 </view>

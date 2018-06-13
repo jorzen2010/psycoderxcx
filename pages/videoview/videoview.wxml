@@ -16,7 +16,7 @@
 <view class='audioinfo'>
 <text  class='audioinfo_title'>课程简介</text>
 <view  class='audioinfo_content'>
-{{sucai.Info}}课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介课程简介
+{{sucai.Info}}
 </view>
 </view>
 

@@ -5,19 +5,24 @@ Page({
   data:{ 
     id:0,
     sucai:{},
+    guanggao:{},
     sucaitype:false,
-    article_content:''
+    article_content:'',
+    imgpre:''
     
   },
   onLoad: function (option) {
-    this.setData({
-      id: option.id
-    })
-    console.log(option.id); 
-    console.log(this.data.id);
     var that = this//不要漏了这句，很重要
+    that.setData({
+      id: option.id,
+      imgpre: app.globalData.apiUrl,
+    })
+    that.GetGuanggaoByPsyUser();
+    console.log(option.id); 
+    console.log(that.data.id);
+    
     wx.request({
-      url: app.globalData.apiUrl + '/api/GetXCXSucai?cid='+this.data.id,
+      url: app.globalData.apiUrl + '/api/GetXCXSucai?cid=' + that.data.id,
       headers: {
         'Content-Type': 'application/json'
       },
@@ -45,6 +50,22 @@ Page({
         Wxparse.wxParse('article_content','html',res.data.Content,that,5)
       }
     });
-    console.log("用id获取对象，并赋值给相应的字段名");
-  }
+  },
+
+  GetGuanggaoByPsyUser:function(){
+    var _this=this;
+    wx.request({
+      url: app.globalData.apiUrl + '/api/GetGuanggaoByPsyUser?pid=' + app.globalData.zixunshi_id,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success:function(res){
+        console.log(res.data);
+        _this.setData({
+          guanggao:res.data,
+
+        })
+      }
+    })
+  },
 })

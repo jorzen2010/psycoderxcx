@@ -12,7 +12,7 @@
 <view class='item' bindtap='navyinpincontent'  data-id="{{item.Id}}">
 <view  class='item-img-icon'>
 <image  src='{{imgpre}}{{item.Cover}}' mode='scaleToFill'   class='item-img'></image>
-<text class='item-img-tag'>免费音频</text>
+<!-- <text class='item-img-tag'>免费音频</text> -->
 </view>
 <view class='item-info'>
 <text class='item-info-title'>{{item.Title}}</text>
@@ -27,7 +27,7 @@
 <view class='item' bindtap='navshipincontent'  data-id="{{item.Id}}">
 <view  class='item-img-icon'>
 <image  src='{{imgpre}}{{item.Cover}}' mode='scaleToFill'   class='item-img'></image>
-<text class='item-img-freetag'>会员专享</text>
+<!-- <text class='item-img-freetag'>会员专享</text> -->
 </view>
 <view class='item-info'>
 <text class='item-info-title'>{{item.Title}}</text>
